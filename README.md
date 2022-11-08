@@ -15,4 +15,8 @@ The course project (CS 329P Practical Machine Learning) applied machine-learning
 The dataset preprocessing method refers to the paper [Data-driven prediction of battery cycle life before capacity degradation](https://www.nature.com/articles/s41560-019-0356-8). The preprocessed dataset file (`processed_data.pkl`) in our code is generated from this [script](https://github.com/dsr-18/long-live-the-battery). The raw dataset can be found [here](https://data.matr.io/1/projects/5c48dd2bc625d700019f3204).
 
 ## Installation
-The project uses Python3.9, Tensorflow 2.5 - GPU
+The project was implemented with python 3.9, Tensorflow 2.10-GPU
+
+```bash
+pip install -r requirements.txt
+```
