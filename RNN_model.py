@@ -1,7 +1,5 @@
 from tensorflow import keras
 from tensorflow.keras import layers
-from attention import Attention
-
 
 def build_model_1(X_train, Y_train, model_config):
     
@@ -27,25 +25,25 @@ def build_model_1(X_train, Y_train, model_config):
         if model_type == 'LSTM':
             x = layers.LSTM(rnn_units[0], return_sequences=True)(x_input)
             if attention_units !=0:
-                x = Attention(attention_units)(x)
+                x = layers.Attention(attention_units)(x)
             else:
                 x = layers.LSTM(rnn_units[1], return_sequences=False)(x)
         if model_type == 'GRU':
             x = layers.GRU(rnn_units[0], return_sequences=True)(x_input)
             if attention_units !=0:
-                x = Attention(attention_units)(x)
+                x = layers.Attention(attention_units)(x)
             else:
                 x = layers.GRU(rnn_units[1], return_sequences=False)(x)
         if model_type == 'Bi_LSTM':
             x = layers.Bidirectional(layers.LSTM(rnn_units[0], return_sequences=True))(x_input)
             if attention_units !=0:
-                x = Attention(attention_units)(x)
+                x = layers.Attention(attention_units)(x)
             else:
                 x = layers.Bidirectional(layers.LSTM(rnn_units[1], return_sequences=False))(x)
         if model_type == 'Bi_GRU':
             x = layers.Bidirectional(layers.GRU(rnn_units[0], return_sequences=True))(x_input)
             if attention_units !=0:
-                x = Attention(attention_units)(x)
+                x = layers.Attention(attention_units)(x)
             else:
                 x = layers.Bidirectional(layers.GRU(rnn_units[1], return_sequences=False))(x)
     
